@@ -1,0 +1,7 @@
+{
+  "name": "projet-android",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
