@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,6 +11,20 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'event',
+    loadChildren: () => import('./event/event.module').then( m => m.EventPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'modal-event',
+    loadChildren: () => import('./modal-event/modal-event.module').then( m => m.ModalEventPageModule),
+    canActivate: [AuthGuard]
   },
 ];
 

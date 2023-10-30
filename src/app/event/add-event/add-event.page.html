@@ -1,0 +1,39 @@
+<ion-header [translucent]="true" color="primary">
+  <ion-toolbar>
+    <ion-title>New Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" style="text-align: center">New Evenement</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <h2 style="color: aquamarine;" class="center">New event</h2>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Email" placeholder="votre email" type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="description" type="text" [(ngModel)]="description" placeholder="description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="lieu" type="text" [(ngModel)]="lieu" placeholder="lieu"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="date" type="date" [(ngModel)]="date" placeholder="date"></ion-input>
+      </ion-item>
+    </ion-list>
+    <br>
+    <p class="success">{{textSuccess}}</p>
+
+    <ion-button (click)="addNewEvent()"><ion-icon slot="start" name="calendar-number-sharp"></ion-icon>Ajouter l'evenement</ion-button>
+    <ion-button (click)="returnEvent()"><ion-icon name="arrow-back-circle" slot="start"></ion-icon>Retour</ion-button>
+  </div>
+</ion-content>

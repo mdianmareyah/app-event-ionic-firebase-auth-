@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>INSCRIPTION</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">inscription</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <p style="color: aquamarine;"><ion-icon name="person-add-outline" slot="start"></ion-icon>inscription</p>
+    <br>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Email" placeholder="votre email" type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="password" type="password" [(ngModel)]="password" placeholder="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <br>
+    <ion-button size="large" (click)="onClickSignUp()" shape="round" color="danger"><ion-icon slot="start" name="logo-google"></ion-icon>s'inscrire</ion-button>
+  </div>
+</ion-content>

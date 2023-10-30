@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { NavController } from '@ionic/angular';
+import { TestAuthService } from '../services/test-auth.service';
+import { Evenement } from '../models/evenement.model';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +10,27 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  email : any
+  password : any
+  constructor(private authService: AuthService, private navCtrl: NavController, private testService: TestAuthService) {
 
-  constructor() {}
+  }
+
+  onClick() {
+    if(this.email && this.password){
+      this.authService.signInWithEmailAndPassword(this.email, this.password).then(
+        () => {
+          this.navCtrl.navigateRoot('event')
+        }
+      ).catch(() => console.error('erreur de connexion'))
+    }
+  }
+
+  onClickSignUp() {
+    this.navCtrl.navigateRoot('signup');
+  }
+
+
+
 
 }

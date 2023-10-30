@@ -1,0 +1,52 @@
+<ion-header [translucent]="true" color="primary">
+  <ion-toolbar>
+    <ion-title>Detail Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense" >
+    <ion-toolbar>
+      <ion-title size="large" style="text-align: center">Detail Event</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-buttons >
+    <ion-button (click)="viewUser()"><ion-icon name="eye" slot="start"></ion-icon>voir les inscrit</ion-button>
+    <ion-button id="alert-message" (click)="submit()" [disabled]="email === evenement.email"><ion-icon name="person-add" slot="start"></ion-icon>s'inscrire</ion-button>
+    <ion-button (click)="viewQr()"><ion-icon [name]="nameQr" slot="start"></ion-icon>Qr</ion-button>
+  </ion-buttons>
+  <ion-alert
+    trigger="alert-message"
+    header="Alert"
+    subHeader="Important message"
+    message="inscrit "
+    [buttons]="alertButtons"
+  ></ion-alert>
+  <div class="qrcodeImage ion-text-center" *ngIf="qr">
+    <qrcode
+      [qrdata]="email"
+      [allowEmptyString]="true"
+      [ariaLabel]="'QR Code image with the following content...'"
+      [cssClass]="'center'"
+      [colorDark]="'#000000ff'"
+      [colorLight]="'#ffffffff'"
+      [elementType]="'canvas'"
+      [errorCorrectionLevel]="'M'"
+      [imageSrc]="'./assets/angular-logo.png'"
+      [imageHeight]="50"
+      [imageWidth]="50"
+      [margin]="4"
+      [scale]="1"
+      [title]="'A custom title attribute'"
+      [width]="300"
+    ></qrcode>
+  </div>
+  <div class="container" *ngIf="inscrit">
+    <ion-list *ngIf="evenement.email === email">
+      <ion-item *ngFor="let item of evenement.inscrit">
+        <ion-label>{{ item }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,7 +1,7 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" color="primary">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title class="success" style="text-align: center">
+      <h3>Event</h3>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,23 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Event</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <h2 style="color: aquamarine;">Login</h2>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Email" placeholder="votre email" type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="password" type="password" [(ngModel)]="password" placeholder="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <br>
+    <ion-button (click)="onClick()" size="large" shape="round" color="success"><ion-icon slot="start" name="logo-google"></ion-icon>se connecter</ion-button>
+    <ion-button (click)="onClickSignUp()" size="large" shape="round" color="danger"><ion-icon slot="start" name="logo-google"></ion-icon>s'inscrire</ion-button>
   </div>
 </ion-content>
